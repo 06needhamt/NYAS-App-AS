@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="home_content_placehlder"> Home page content goes here </string>
     <string name="title_activity_start">StartActivity</string>
+    <string name="accessibility_string"> Accessibility </string>
 
 </resources>
