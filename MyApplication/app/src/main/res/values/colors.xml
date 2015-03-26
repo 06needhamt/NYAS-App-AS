@@ -2,9 +2,13 @@
 
 <resources>
     <color name = "White">#FFFFFFFF</color>
-    <color name = "Red"> #FFFF0000</color>
-    <color name = "Green"> #FF00FF00</color>
-    <color name = "Black"> #FF000000</color>
-    <color name = "Pink"> #FFECB0D3 </color>
-    <color name = "Blue"> #FF38A9DB</color>
+    <color name = "Red">#FFFF0000</color>
+    <color name = "Green">#FF00FF00</color>
+    <color name = "Black">#FF000000</color>
+    <color name = "Pink">#FFECB0D3</color>
+    <color name = "Blue">#FF38A9DB</color>
+    <color name = "Yellow">#FFF8FF1D</color>
+    <color name = "Cream">#FFF8FFDC</color>
+    <color name = "Grey">#FF9CAFC7</color>
+
 </resources>
