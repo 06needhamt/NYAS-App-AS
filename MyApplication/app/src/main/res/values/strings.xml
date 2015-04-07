@@ -4,9 +4,11 @@
     <string name="app_name">NYAS-App</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="home_content_placehlder"> Home page content goes here </string>
+    <string name="home_content_placeholder"> Home page content goes here </string>
     <string name="title_activity_start">StartActivity</string>
     <string name="accessibility_string"> Accessibility </string>
     <string name="text_only_string"> Text Only</string>
+    <string name="profile_content_placeholder"> User profile content goes here </string>
+    <string name="enter_pin_string"> Enter your 4 Digit pin </string>
 
 </resources>

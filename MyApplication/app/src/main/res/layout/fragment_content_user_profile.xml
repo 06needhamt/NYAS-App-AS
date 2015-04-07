@@ -6,9 +6,9 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="@string/home_content_placeholder"
+        android:text="@string/profile_content_placeholder"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/Black"
-        android:id="@+id/ContentText" />
-</RelativeLayout>
+        android:id="@+id/UserProfileContentText"/>
+    </RelativeLayout>

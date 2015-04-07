@@ -1,11 +1,14 @@
 package nyas.com.nyas_app.root.root.classes;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+
+import nyas.com.nyas_app.R;
 
 /**
  * Created by Tom on 25/03/2015.
@@ -16,12 +19,14 @@ public class ButtonCreator {
     Activity act;
     int[] drawableids;
     TableLayout table;
+    Fragment[] fragments;
 
-    public ButtonCreator(Activity A, int[] drawableids, TableLayout Table)
+    public ButtonCreator(Activity A, int[] drawableids, TableLayout Table, Fragment[] fragments)
     {
         this.act = A;
         this.drawableids = drawableids;
         this.table = Table;
+        this.fragments = fragments;
     }
 
     public void createButtons()
@@ -54,6 +59,6 @@ public class ButtonCreator {
         }
     }
     private void buttonClicked(int buttonnumber) {
-
+        act.getFragmentManager().beginTransaction().replace(R.id.ContentFrame,fragments[buttonnumber]).commit();
     }
 }

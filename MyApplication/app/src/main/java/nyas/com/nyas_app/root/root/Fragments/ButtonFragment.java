@@ -16,6 +16,7 @@ import nyas.com.nyas_app.root.root.classes.ButtonCreator;
 public class ButtonFragment extends Fragment {
 
     View v;
+    Fragment[] fragments;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -27,14 +28,27 @@ public class ButtonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_button,container,false);
         view.setPadding(0,0,0,0);
         v = view;
+        fragments = createFragments();
         createButtons();
         return view;
     }
 
+    private Fragment[] createFragments()
+    {
+        Fragment[] fragments = new Fragment[6];
+        fragments[0] = new HomeContentFragment();
+        fragments[1] = new UserProfileContentFragment();
+        fragments[2] = new Fragment();
+        fragments[3] = new Fragment();
+        fragments[4] = new Fragment();
+        fragments[5] = new Fragment();
+        return fragments;
+
+    }
     private void createButtons() {
 
         TableLayout table = (TableLayout) v.findViewById(R.id.TableForButtons);
-        ButtonCreator btnCreator = new ButtonCreator(this.getActivity(),getids(),table);
+        ButtonCreator btnCreator = new ButtonCreator(this.getActivity(),getids(),table,fragments);
         btnCreator.createButtons();
 
     }

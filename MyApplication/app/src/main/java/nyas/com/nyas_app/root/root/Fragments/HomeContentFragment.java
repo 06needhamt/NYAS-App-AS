@@ -28,8 +28,6 @@ public class HomeContentFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_content_home,container,false);
         view.setPadding(0,0,0,5);
         v = view;
-        TextView text = (TextView) v.findViewById(R.id.ContentText);
-        text.setText(R.string.home_content_placehlder);
         return view;
     }
 }
