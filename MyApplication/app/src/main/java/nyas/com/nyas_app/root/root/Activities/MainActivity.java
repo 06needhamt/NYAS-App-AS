@@ -24,6 +24,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         DisplayMetrics dm = new DisplayMetrics();
         GetDisplayMetrics(dm);
+        //AddContentFragment(new Fragment());
         AddButtonFragment (new ButtonFragment());
         AddLogoFragment(new LogoFragment());
         AddSpeechFragment (new SpeechFragment());

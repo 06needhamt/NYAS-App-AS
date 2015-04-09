@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="@string/home_content_placeholder"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/Black"
-        android:id="@+id/ContentText" />
-</RelativeLayout>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Row 1"
+        android:id="@+id/Row1"
+        android:layout_gravity="center_horizontal|top" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Row 2"
+        android:id="@+id/Row2"
+        android:layout_gravity="center_horizontal|top" />
+</FrameLayout>
