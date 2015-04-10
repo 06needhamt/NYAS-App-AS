@@ -2,7 +2,6 @@ package nyas.com.nyas_app.root.root.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -19,6 +18,8 @@ import static android.view.ViewTreeObserver.OnGlobalLayoutListener;
 
 /**
  * Created by 22416714 on 25/03/2015.
+ * This class creates and displays the content pane for the home page
+ * @author Tom Needham
  */
 public class HomeContentFragment extends Fragment{
     /**

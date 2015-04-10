@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import nyas.com.nyas_app.R;
@@ -17,6 +16,8 @@ import nyas.com.nyas_app.R;
 
 /**
  * Created by Tom Needham on 25/03/2015.
+ * This class creates and displays the accessibility fragment
+ * @author Tom Needham
  */
 public class AccessibilityFragment extends Fragment{
 
@@ -45,11 +46,16 @@ public class AccessibilityFragment extends Fragment{
     {
         View view = inflater.inflate (R.layout.fragment_accessibility, container, false);
         v = view;
-        CreateLayoutParams();
+        SetupViews();
         return view;
     }
 
-    private void CreateLayoutParams() {
+    /**
+     * This method sets up all of the views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
+    private void SetupViews() {
         DisplayMetrics dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         int screenheight = dm.heightPixels;
@@ -58,6 +64,13 @@ public class AccessibilityFragment extends Fragment{
         CreateImageViews(screenheight,screenwidth);
 
     }
+
+    /**
+     * This method creates and displays all of the ImageView objects within this fragment
+     * And assigns their layout parameters
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     */
 
     private void CreateImageViews(int screenheight, int screenwidth) {
         Pink = (ImageView) v.findViewById(R.id.Pink);
@@ -84,6 +97,12 @@ public class AccessibilityFragment extends Fragment{
 
     }
 
+    /**
+     * This method creates and displays all of the TextView objects within this fragment
+     * And assigns their layout parameters
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     */
     private void CreateTextViews(int screenheight, int screenwidth) {
         TitleText = (TextView) v.findViewById(R.id.TileText);
         TitleText.setTextColor(v.getResources().getColor(R.color.White));
@@ -103,6 +122,13 @@ public class AccessibilityFragment extends Fragment{
         TextOnly.setLayoutParams(CreateTextOnlyLayoutParams(screenheight,screenwidth));
     }
 
+
+    /**
+     * This method creates the layout params for the Pink ImageView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreatePinkLayoutParams(int screenheight, int screenwidth) {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -114,6 +140,12 @@ public class AccessibilityFragment extends Fragment{
         return params;
     }
 
+    /**
+     * This method creates the layout params for the Blue ImageView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateBlueLayoutParams(int screenheight, int screenwidth) {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -125,6 +157,12 @@ public class AccessibilityFragment extends Fragment{
         return params;
     }
 
+    /**
+     * This method creates the layout params for the Yellow ImageView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateYellowLayoutParams(int screenheight, int screenwidth) {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -136,6 +174,12 @@ public class AccessibilityFragment extends Fragment{
         return params;
     }
 
+    /**
+     * This method creates the layout params for the Black ImageView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateBlackLayoutParams(int screenheight, int screenwidth) {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -147,6 +191,12 @@ public class AccessibilityFragment extends Fragment{
         return params;
     }
 
+    /**
+     * This method creates the layout params for the Cream ImageView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateCreamLayoutParams(int screenheight, int screenwidth) {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -158,6 +208,12 @@ public class AccessibilityFragment extends Fragment{
         return params;
     }
 
+    /**
+     * This method creates the layout params for the Grey ImageView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateGreyLayoutParams(int screenheight, int screenwidth) {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -169,6 +225,12 @@ public class AccessibilityFragment extends Fragment{
         return params;
     }
 
+    /**
+     * This method creates the layout params for the White ImageView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateWhiteLayoutParams(int screenheight, int screenwidth) {
 
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -180,7 +242,12 @@ public class AccessibilityFragment extends Fragment{
         return params;
     }
 
-
+    /**
+     * This method creates the layout params for the Large Text TextView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateLargeTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.gravity = Gravity.LEFT;
@@ -191,6 +258,12 @@ public class AccessibilityFragment extends Fragment{
 
     }
 
+    /**
+     * This method creates the layout params for the Medium Text TextView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateMediumTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.gravity = Gravity.LEFT;
@@ -201,6 +274,12 @@ public class AccessibilityFragment extends Fragment{
 
     }
 
+    /**
+     * This method creates the layout params for the Small Text TextView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateSmallTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.gravity = Gravity.LEFT;
@@ -211,6 +290,12 @@ public class AccessibilityFragment extends Fragment{
 
     }
 
+    /**
+     * This method creates the layout params for the Title TextView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
     private FrameLayout.LayoutParams CreateTitleLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -219,6 +304,13 @@ public class AccessibilityFragment extends Fragment{
         params.leftMargin = (int) (screenwidth * 0.02);
         return params;
     }
+
+    /**
+     * This method creates the layout params for the Text Only TextView object within this fragment
+     * @param screenheight the height of the screen in pixels on the device that the app is running on
+     * @param screenwidth the width of the screen in pixels on the device that the app is running on
+     * @return The layout FrameLayout.LayoutParams to be assigned to the object
+     */
 
     private FrameLayout.LayoutParams CreateTextOnlyLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);

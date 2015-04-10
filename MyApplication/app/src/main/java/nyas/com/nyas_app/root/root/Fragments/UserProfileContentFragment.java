@@ -24,12 +24,22 @@ import nyas.com.nyas_app.root.root.dialogs.IConfirmDialogCompliant;
 import nyas.com.nyas_app.root.root.dialogs.PinInputDialog;
 
 /**
- * Created by 22416714 on 25/03/2015.
+ * Created by Tom Needham on 25/03/2015.
+ * This class creates and displays the UserProfileContentFragment where the content on the
+ * user profile screen will be displayed
  */
 public class UserProfileContentFragment extends Fragment implements IAppConstants,IConfirmDialogCompliant{
-
+    /**
+     * The view object used in the creation of this fragment
+     */
     View v;
+    /**
+     * Variable used to store the pin number returned from {@link nyas.com.nyas_app.root.root.dialogs.PinInputDialog}
+     */
     String pin = "";
+    /**
+     * Variable to store whether the pin returned from {@link nyas.com.nyas_app.root.root.dialogs.PinInputDialog} is correct
+     */
     boolean correct = false;
 
     @Override

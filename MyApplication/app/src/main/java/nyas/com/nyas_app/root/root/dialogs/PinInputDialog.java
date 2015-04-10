@@ -15,22 +15,46 @@ import nyas.com.nyas_app.R;
 
 /**
  * Created by Tom on 26/03/2015.
+ * This Class creates and displays a {@link android.app.DialogFragment} which allows the user to enter
+ * their 4 digit pin code
  */
 public class PinInputDialog extends DialogFragment implements DialogInterface{
-
+    /**
+     * The textview object that will be used to input the pin number entered by the user
+     */
     TextView input;
+    /**
+     * The message to be displayed on the dialog fragment
+     */
     String Message;
+    /**
+     * A Reference to a class which implements {@link nyas.com.nyas_app.root.root.dialogs.IConfirmDialogCompliant}
+     * which will be used to handle all events from this dialog fragment
+     */
     IConfirmDialogCompliant caller;
 
+    /**
+     * Required constructor definition DO NOT USE
+     */
     @Deprecated
     public PinInputDialog() { }
-
+    /**
+     * Required constructor definition DO NOT USE
+     */
     @Deprecated
-    public PinInputDialog(String Message) {this.Message = Message;}
-
+    private PinInputDialog(String Message) {this.Message = Message;}
+    /**
+     * Required constructor definition DO NOT USE
+     */
     @Deprecated
-    public PinInputDialog(IConfirmDialogCompliant caller) {this.caller = caller;}
+    private PinInputDialog(IConfirmDialogCompliant caller) {this.caller = caller;}
 
+    /**
+     * Default constructor for this dialog fragment
+     * @param message The message to be shown on the dialog fragment
+     * @param caller A reference to {@link nyas.com.nyas_app.root.root.dialogs.IConfirmDialogCompliant}
+     *               where all handled evrnts will be sent to
+     */
     public PinInputDialog(String message, IConfirmDialogCompliant caller) {this.Message = message; this.caller = caller;}
 
     public Dialog onCreateDialog(Bundle savedInstanceState)
@@ -85,7 +109,12 @@ public class PinInputDialog extends DialogFragment implements DialogInterface{
         });
         return builder.create();
     }
+
+    /**
+     * This method is called when the cancel button is pressed in the dialog fragment
+     */
     @Override
+
     public void cancel() {
         input.setText("0000");
     }
