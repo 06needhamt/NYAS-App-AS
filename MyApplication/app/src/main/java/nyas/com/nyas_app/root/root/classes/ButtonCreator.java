@@ -6,8 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import nyas.com.nyas_app.R;
+import nyas.com.nyas_app.root.root.Activities.MainActivity;
+import nyas.com.nyas_app.root.root.Fragments.HomeContentFragment;
 
 /**
  * Created by Thomas Needham on 25/03/2015.
@@ -17,7 +20,7 @@ import nyas.com.nyas_app.R;
 public class ButtonCreator {
 
     public final int NUM_BUTTONS = 6;
-    final Activity caller;
+    MainActivity caller;
     final int[] drawableids;
     TableLayout table;
     final Fragment[] fragments;
@@ -30,7 +33,7 @@ public class ButtonCreator {
      * @param Table
      * @param fragments
      */
-    public ButtonCreator(Activity caller, int[] drawableids, TableLayout Table, Fragment[] fragments)
+    public ButtonCreator(MainActivity caller, int[] drawableids, TableLayout Table, Fragment[] fragments)
     {
         this.caller = caller;
         this.drawableids = drawableids;
@@ -68,6 +71,13 @@ public class ButtonCreator {
         }
     }
     private void buttonClicked(int buttonnumber) {
+        if(buttonnumber < 5) {
+            caller.findViewById(R.id.AccessibilityFrame).setVisibility(View.VISIBLE);
+            caller.findViewById(R.id.SpeechFrame).setVisibility(View.VISIBLE);
+            caller.findViewById(R.id.LogoFrame).setVisibility(View.VISIBLE);
+            caller.findViewById(R.id.ContentFrame).setVisibility(View.VISIBLE);
+        }
+        Toast.makeText(caller,String.valueOf(buttonnumber),Toast.LENGTH_LONG).show();
         caller.getFragmentManager().beginTransaction().replace(R.id.ContentFrame,fragments[buttonnumber]).commit();
     }
 }

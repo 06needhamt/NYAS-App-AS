@@ -30,12 +30,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         DisplayMetrics dm = new DisplayMetrics();
         GetDisplayMetrics(dm);
-        //AddContentFragment(new Fragment());
-        AddButtonFragment (new ButtonFragment());
-        AddLogoFragment(new LogoFragment());
-        AddSpeechFragment (new SpeechFragment());
-        AddAccessabilityFragment (new AccessibilityFragment());
-        AddContentFragment (new HomeContentFragment());
+        AddFragments();
 
     }
 
@@ -62,46 +57,14 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * This method adds the Fragment containing the navigation buttons to the Activity
-     * @param f the fragment to add to the Activity
-     */
-    protected void AddButtonFragment(Fragment f) {
-        this.getFragmentManager().beginTransaction().add(R.id.bottomTableForButtons, f).commit();
+    public void AddFragments()
+    {
+        this.getFragmentManager().beginTransaction().add(R.id.bottomTableForButtons,new ButtonFragment()).commit();
+        this.getFragmentManager().beginTransaction().add(R.id.ContentFrame,new HomeContentFragment()).commit();
+        this.getFragmentManager().beginTransaction().add(R.id.SpeechFrame, new SpeechFragment()).commit();
+        this.getFragmentManager().beginTransaction().add(R.id.AccessibilityFrame, new AccessibilityFragment()).commit();
+        this.getFragmentManager().beginTransaction().add(R.id.LogoFrame, new LogoFragment()).commit();
     }
-
-    /**
-    * This method adds the Fragment containing the logo to the Activity
-    * @param f the fragment to add to the Activity
-    */
-    protected void AddLogoFragment(Fragment f) {
-        this.getFragmentManager().beginTransaction().add(R.id.LogoFrame, f).commit();
-    }
-
-    /**
-     * This method adds the Fragment containing the speech bubble to the Activity
-     * @param f the fragment to add to the Activity
-     */
-    protected void AddSpeechFragment(Fragment f) {
-        this.getFragmentManager().beginTransaction().add(R.id.SpeechFrame, f).commit();
-    }
-
-    /**
-     * This method adds the Fragment containing the Accessibility bar to the Activity
-     * @param f the fragment to add to the Activity
-     */
-    protected void AddAccessabilityFragment(Fragment f) {
-        this.getFragmentManager().beginTransaction().add(R.id.AccessibilityFrame, f).commit();
-    }
-
-    /**
-     * This method adds the Fragment containing the Content Pane to the Activity
-     * @param f the fragment to add to the Activity
-     */
-    protected void AddContentFragment(Fragment f) {
-        this.getFragmentManager().beginTransaction().add(R.id.ContentFrame, f).commit();
-    }
-
     /**
      * gets the screen width and size for dynamic creation of the ui
      * @param dm the display metrics object to store the values in

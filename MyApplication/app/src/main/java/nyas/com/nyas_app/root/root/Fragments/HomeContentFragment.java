@@ -2,6 +2,7 @@ package nyas.com.nyas_app.root.root.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ public class HomeContentFragment extends Fragment{
     View v;
     TextView Row1;
     TextView Row2;
+    DisplayMetrics dm;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -40,7 +42,10 @@ public class HomeContentFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_content_home,container,false);
         view.setPadding(0,0,0,5);
         v = view;
+        dm = new DisplayMetrics();
+        getActivity().findViewById(R.id.ContentFrame).setVisibility(View.VISIBLE);
         SetUpViews();
+        v.requestLayout();
         return view;
     }
 
@@ -48,6 +53,7 @@ public class HomeContentFragment extends Fragment{
      * this method initialises and draws all of the objects within the fragment and displays them
      */
     private void SetUpViews() {
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         Row1 = (TextView) v.findViewById(R.id.Row1);
         Row1.setBackgroundColor(getActivity().getResources().getColor(R.color.Blue));
         Row1.setTextColor(getActivity().getResources().getColor(R.color.White));
@@ -71,56 +77,36 @@ public class HomeContentFragment extends Fragment{
 
     private FrameLayout.LayoutParams CreateRow1Params()
     {
-        final RelativeLayout f = (RelativeLayout) getActivity().findViewById(R.id.ContentFrame);
-        final ViewTreeObserver observer= f.getViewTreeObserver();
-        final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(0,0);
-        observer.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                f.getHeight();
-                int screenwidth = f.getWidth();
-                int screenheight = f.getHeight();
-                //params = new FrameLayout.LayoutParams(screenwidth,screenheight);
-                params.gravity = Gravity.CENTER_HORIZONTAL;
-                params.width = FrameLayout.LayoutParams.MATCH_PARENT;
-                params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
-                params.topMargin = (int) (screenheight * 0.30);
-                params.leftMargin = (int) (screenwidth * 0.05);
-                params.rightMargin = (int) (screenwidth * 0.05);
-//                observer.removeGlobalOnLayoutListener(this);
-            }
-        });
 
-
+        int screenwidth = dm.widthPixels;
+        int screenheight = dm.heightPixels;
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
+        //params = new FrameLayout.LayoutParams(screenwidth,screenheight);
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        params.width = FrameLayout.LayoutParams.MATCH_PARENT;
+        params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.topMargin = (int) (screenheight * 0.10);
+        params.leftMargin = (int) (screenwidth * 0.05);
+        params.rightMargin = (int) (screenwidth * 0.05);
         return params;
     }
 
+
     /**
      * Create the layout params for a row of the ui by getting the height and width
-     * of the fragment that they are part of by using a {@link OnGlobalLayoutListener}
-     * @return the layout params to be used on the {@link #Row1} text view
      */
     private FrameLayout.LayoutParams CreateRow2Params()
     {
-        final RelativeLayout f = (RelativeLayout) getActivity().findViewById(R.id.ContentFrame);
-        final ViewTreeObserver observer= f.getViewTreeObserver();
-        final FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(0,0);
-        observer.addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                f.getHeight();
-                int screenwidth = f.getWidth();
-                int screenheight = f.getHeight();
-                //params = new FrameLayout.LayoutParams(screenwidth,screenheight);
-                params.gravity = Gravity.CENTER_HORIZONTAL;
-                params.width = FrameLayout.LayoutParams.MATCH_PARENT;
-                params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
-                params.topMargin = (int) (screenheight * 0.40);
-                params.leftMargin = (int) (screenwidth * 0.05);
-                params.rightMargin = (int) (screenwidth * 0.05);
-//                observer.removeGlobalOnLayoutListener(this);
-            }
-        });
+        int screenwidth = dm.widthPixels;
+        int screenheight = dm.heightPixels;
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
+        //params = new FrameLayout.LayoutParams(screenwidth,screenheight);
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        params.width = FrameLayout.LayoutParams.MATCH_PARENT;
+        params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.topMargin = (int) (screenheight * 0.30);
+        params.leftMargin = (int) (screenwidth * 0.05);
+        params.rightMargin = (int) (screenwidth * 0.05);
         return params;
     }
 }

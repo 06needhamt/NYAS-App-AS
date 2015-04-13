@@ -10,5 +10,6 @@
     <string name="text_only_string"> Text Only</string>
     <string name="profile_content_placeholder"> User profile content goes here </string>
     <string name="enter_pin_string"> Enter your 4 Digit pin </string>
+    <string name="home_page_info"> Navigation bar will be on every page. Home page icon used for the home page</string>
 
 </resources>

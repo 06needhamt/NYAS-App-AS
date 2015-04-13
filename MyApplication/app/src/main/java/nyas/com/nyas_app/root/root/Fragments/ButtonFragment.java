@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TableLayout;
 
 import nyas.com.nyas_app.R;
+import nyas.com.nyas_app.root.root.Activities.MainActivity;
 import nyas.com.nyas_app.root.root.classes.ButtonCreator;
 
 /**
@@ -35,20 +36,20 @@ public class ButtonFragment extends Fragment {
 
     private Fragment[] createFragments()
     {
-        Fragment[] fragments = new Fragment[6];
+        fragments = new Fragment[6];
         fragments[0] = new HomeContentFragment();
         fragments[1] = new UserProfileContentFragment();
         fragments[2] = new Fragment();
         fragments[3] = new Fragment();
-        fragments[4] = new Fragment();
-        fragments[5] = new Fragment();
+        fragments[4] = new UserProfileContentFragment();
+        fragments[5] = new InformationFragment();
         return fragments;
 
     }
     private void createButtons() {
 
         TableLayout table = (TableLayout) v.findViewById(R.id.TableForButtons);
-        ButtonCreator btnCreator = new ButtonCreator(this.getActivity(),getids(),table,fragments);
+        ButtonCreator btnCreator = new ButtonCreator((MainActivity) this.getActivity(),getids(),table,fragments);
         btnCreator.createButtons();
 
     }
