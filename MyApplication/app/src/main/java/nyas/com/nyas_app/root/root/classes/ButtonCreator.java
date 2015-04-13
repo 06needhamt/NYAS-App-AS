@@ -77,7 +77,6 @@ public class ButtonCreator {
             caller.findViewById(R.id.LogoFrame).setVisibility(View.VISIBLE);
             caller.findViewById(R.id.ContentFrame).setVisibility(View.VISIBLE);
         }
-        Toast.makeText(caller,String.valueOf(buttonnumber),Toast.LENGTH_LONG).show();
         caller.getFragmentManager().beginTransaction().replace(R.id.ContentFrame,fragments[buttonnumber]).commit();
     }
 }

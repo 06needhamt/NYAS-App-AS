@@ -71,8 +71,7 @@ public class HomeContentFragment extends Fragment{
 
     /**
      * Create the layout params for a row of the ui by getting the height and width
-     * of the fragment that they are part of by using a {@link OnGlobalLayoutListener}
-     * @return the layout params to be used on the {@link #Row1} text view
+     * of the fragment
      */
 
     private FrameLayout.LayoutParams CreateRow1Params()
@@ -94,6 +93,7 @@ public class HomeContentFragment extends Fragment{
 
     /**
      * Create the layout params for a row of the ui by getting the height and width
+     * of the fragment
      */
     private FrameLayout.LayoutParams CreateRow2Params()
     {
