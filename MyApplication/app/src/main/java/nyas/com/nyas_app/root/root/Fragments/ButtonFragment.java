@@ -39,9 +39,9 @@ public class ButtonFragment extends Fragment {
         fragments = new Fragment[6];
         fragments[0] = new HomeContentFragment();
         fragments[1] = new UserProfileContentFragment();
-        fragments[2] = new Fragment();
+        fragments[2] = new ContactFragment();
         fragments[3] = new Fragment();
-        fragments[4] = new UserProfileContentFragment();
+        fragments[4] = new Fragment();
         fragments[5] = new InformationFragment();
         return fragments;
 

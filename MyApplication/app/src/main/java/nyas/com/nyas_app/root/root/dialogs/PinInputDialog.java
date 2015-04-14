@@ -28,10 +28,10 @@ public class PinInputDialog extends DialogFragment implements DialogInterface{
      */
     String Message;
     /**
-     * A Reference to a class which implements {@link nyas.com.nyas_app.root.root.dialogs.IConfirmDialogCompliant}
+     * A Reference to a class which implements {@link IConfirmPinDialogCompliant}
      * which will be used to handle all events from this dialog fragment
      */
-    IConfirmDialogCompliant caller;
+    IConfirmPinDialogCompliant caller;
 
     /**
      * Required constructor definition DO NOT USE
@@ -47,15 +47,15 @@ public class PinInputDialog extends DialogFragment implements DialogInterface{
      * Required constructor definition DO NOT USE
      */
     @Deprecated
-    private PinInputDialog(IConfirmDialogCompliant caller) {this.caller = caller;}
+    private PinInputDialog(IConfirmPinDialogCompliant caller) {this.caller = caller;}
 
     /**
      * Default constructor for this dialog fragment
      * @param message The message to be shown on the dialog fragment
-     * @param caller A reference to {@link nyas.com.nyas_app.root.root.dialogs.IConfirmDialogCompliant}
+     * @param caller A reference to {@link IConfirmPinDialogCompliant}
      *               where all handled evrnts will be sent to
      */
-    public PinInputDialog(String message, IConfirmDialogCompliant caller) {this.Message = message; this.caller = caller;}
+    public PinInputDialog(String message, IConfirmPinDialogCompliant caller) {this.Message = message; this.caller = caller;}
 
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
