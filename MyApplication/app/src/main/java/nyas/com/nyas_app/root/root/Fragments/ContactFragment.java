@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,17 +18,26 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.Date;
 
 import nyas.com.nyas_app.R;
+import nyas.com.nyas_app.root.root.IAppConstants;
+import nyas.com.nyas_app.root.root.classes.Appointment;
+import nyas.com.nyas_app.root.root.classes.AppointmentList;
 import nyas.com.nyas_app.root.root.classes.Time;
 import nyas.com.nyas_app.root.root.dialogs.CustomDateSetListener;
 
 /**
  * Created by Tom on 14/04/2015.
  */
-public class ContactFragment extends Fragment{
+public class ContactFragment extends Fragment implements IAppConstants{
 
     Button dateButton;
     Button timeButton;
@@ -135,10 +145,55 @@ public class ContactFragment extends Fragment{
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Request Submitted", Toast.LENGTH_LONG).show();
+
+                WriteAppointmentToFile();
             }
         });
         submitButton.setLayoutParams(CreateSubmitButtonLayoutParams(screenheight, screenwidth));
+    }
+
+    private void WriteAppointmentToFile() {
+        try {
+            Appointment a = parseAppointment();
+            File file = new File(getActivity().getFilesDir(), APPOINTMENT_FILE_NAME);
+            FileInputStream fileInputStream = new FileInputStream(file);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            AppointmentList list = (AppointmentList) objectInputStream.readObject();
+            list.addAppointment(a);
+            Log.e("List Size ", String.valueOf(list.getAppointments().size()));
+            Log.e("File Path",file.getAbsolutePath());
+            FileOutputStream fileOutputStream = new FileOutputStream(file,false);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+            objectOutputStream.writeObject(list);
+            Log.e("File Size", String.valueOf(file.length()));
+            Toast.makeText(getActivity(),"Appointment Request Submitted", Toast.LENGTH_LONG).show();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+            Log.e("WriteAppointment","An error occurred while writing the appointment to a file");
+            throw new Error("\"An error occurred while writing the appointment to a file\"");
+        }
+
+
+
+    }
+
+    private Appointment parseAppointment() throws NumberFormatException {
+        String[] datestring;
+        String[] timsstring;
+        Date d = new Date();
+        Time t = new Time();
+        Appointment a;
+        datestring = dateText.getText().toString().split("/");
+        d.setDate(Integer.parseInt(datestring[0]));
+        d.setMonth(Integer.parseInt(datestring[1]));
+        d.setYear(Integer.parseInt(datestring[2]));
+        timsstring = timeText.getText().toString().split(":");
+        t.setHours(Integer.parseInt(timsstring[0]));
+        t.setMinutes(Integer.parseInt(timsstring[1]));
+        a = new Appointment(d,t);
+        return a;
     }
 
     private FrameLayout.LayoutParams CreateTimeTextLayoutParams(int screenheight, int screenwidth) {

@@ -7,17 +7,9 @@
     android:minHeight="25px">
 
 
-    <ImageView
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/hello"
+        android:id="@+id/items"
         android:layout_gravity="center" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/view_appointments"
-        android:id="@+id/AppointmentsButton"
-        android:layout_gravity="center" />
-
 </FrameLayout>

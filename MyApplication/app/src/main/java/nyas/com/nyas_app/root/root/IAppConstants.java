@@ -19,4 +19,5 @@ package nyas.com.nyas_app.root.root;
 public interface IAppConstants {
 
     public static final String PREF_NAMES = "myAppPrefs";
+    public static final String APPOINTMENT_FILE_NAME = "appointments.bin";
 }

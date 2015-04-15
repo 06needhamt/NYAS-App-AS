@@ -1,9 +1,11 @@
 package nyas.com.nyas_app.root.root.classes;
 
+import java.io.Serializable;
+
 /**
  * Created by Tom on 14/04/2015.
  */
-public class Time {
+public class Time implements Serializable{
     private int hours;
     private int minutes;
     private int seconds;

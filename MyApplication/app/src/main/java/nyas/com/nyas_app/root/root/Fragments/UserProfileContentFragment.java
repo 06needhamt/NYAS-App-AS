@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import nyas.com.nyas_app.R;
@@ -34,6 +35,8 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
      */
     boolean correct = false;
 
+    Button Appointments;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +49,19 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
         view.setPadding(0, 0, 0, 5);
         v = view;
         enterPin();
+        SetUpViews();
 
         return view;
+    }
+
+    private void SetUpViews() {
+        Appointments = (Button) v.findViewById(R.id.AppointmentsButton);
+        Appointments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getFragmentManager().beginTransaction().replace(R.id.ContentFrame,new AppointmentFragment()).commit();
+            }
+        });
     }
 
     /**
