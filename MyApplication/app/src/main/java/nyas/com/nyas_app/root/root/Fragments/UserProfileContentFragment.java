@@ -4,10 +4,13 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import nyas.com.nyas_app.R;
@@ -36,6 +39,8 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
     boolean correct = false;
 
     Button Appointments;
+    Button EditProfile;
+    DisplayMetrics dm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,12 +54,15 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
         view.setPadding(0, 0, 0, 5);
         v = view;
         enterPin();
+        getDisplayMetrics();
         SetUpViews();
 
         return view;
     }
 
     private void SetUpViews() {
+        int screenwidth = dm.widthPixels;
+        int screenheight = dm.heightPixels;
         Appointments = (Button) v.findViewById(R.id.AppointmentsButton);
         Appointments.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +70,32 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
                 getActivity().getFragmentManager().beginTransaction().replace(R.id.ContentFrame,new AppointmentFragment()).commit();
             }
         });
+        Appointments.setLayoutParams(CreateAppointmentLayoutParams(screenwidth,screenheight));
+        EditProfile = (Button) v.findViewById(R.id.EditProfile);
+        EditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getFragmentManager().beginTransaction().replace(R.id.ContentFrame,new EditProfileFragment()).commit();
+            }
+        });
+        EditProfile.setLayoutParams(CreateEditProfileLayoutParams(screenwidth,screenheight));
+    }
+
+    private FrameLayout.LayoutParams CreateAppointmentLayoutParams(int screenwidth, int screenheight) {
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
+        params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        params.topMargin = (int) (screenheight * 0.20);
+        return params;
+    }
+    private FrameLayout.LayoutParams CreateEditProfileLayoutParams(int screenwidth, int screenheight) {
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
+        params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        params.topMargin = (int) (screenheight * 0.05);
+        return params;
     }
 
     /**
@@ -122,6 +156,12 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
     @Override
     public void doNoConfirmClick(String pin) {
         this.getFragmentManager().beginTransaction().replace(R.id.ContentFrame, new HomeContentFragment()).commit();
+    }
+
+    public void getDisplayMetrics()
+    {
+        dm = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
     }
 }
 
