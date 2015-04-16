@@ -25,6 +25,5 @@
     <string name="view_appointments">View Appointments</string>
     <string name="edit_profile_string">Edit Profile</string>
     <string name="save_changes">Save Changes</string>
-    <string name="feedback_title"> Please rate your user experience out of 5 </string>
 
 </resources>
