@@ -13,24 +13,11 @@
         android:id="@+id/hello"
         android:layout_gravity="center" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="center_horizontal|top" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/view_appointments"
         android:id="@+id/AppointmentsButton"
-        android:layout_gravity="center_horizontal|top" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/edit_profile_string"
-        android:id="@+id/EditProfile"
-        android:layout_gravity="center_horizontal|top" />
+        android:layout_gravity="center" />
 
 </FrameLayout>
