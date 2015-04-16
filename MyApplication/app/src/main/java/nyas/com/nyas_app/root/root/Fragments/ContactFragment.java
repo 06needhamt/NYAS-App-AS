@@ -156,11 +156,9 @@ public class ContactFragment extends Fragment implements IAppConstants{
         try {
             Appointment a = parseAppointment();
             File file = new File(getActivity().getFilesDir().getAbsolutePath(), APPOINTMENT_FILE_NAME);
+            Log.e("File Path",file.getAbsolutePath());
             AppointmentList list;
-            if(!file.exists())
-            {
-                file.createNewFile();
-            }
+            if(!file.exists()) { file.createNewFile(); }
             if(file.length() != 0)
             {
                 FileInputStream fileInputStream = new FileInputStream(file);
@@ -168,13 +166,12 @@ public class ContactFragment extends Fragment implements IAppConstants{
                 list = (AppointmentList) objectInputStream.readObject();
             }
             else
-            {
                 list = AppointmentList.GetInstance();
-            }
 
+            Log.e("List Size",String.valueOf(list.getAppointments().size()));
             list.addAppointment(a);
+            Log.e("File Size",String.valueOf(file.length()));
             Log.e("List Size ", String.valueOf(list.getAppointments().size()));
-            Log.e("File Path",file.getAbsolutePath());
             FileOutputStream fileOutputStream = new FileOutputStream(file,false);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(list);
