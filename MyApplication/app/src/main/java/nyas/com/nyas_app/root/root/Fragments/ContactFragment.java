@@ -155,10 +155,23 @@ public class ContactFragment extends Fragment implements IAppConstants{
     private void WriteAppointmentToFile() {
         try {
             Appointment a = parseAppointment();
-            File file = new File(getActivity().getFilesDir(), APPOINTMENT_FILE_NAME);
-            FileInputStream fileInputStream = new FileInputStream(file);
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            AppointmentList list = (AppointmentList) objectInputStream.readObject();
+            File file = new File(getActivity().getFilesDir().getAbsolutePath(), APPOINTMENT_FILE_NAME);
+            AppointmentList list;
+            if(!file.exists())
+            {
+                file.createNewFile();
+            }
+            if(file.length() != 0)
+            {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+                list = (AppointmentList) objectInputStream.readObject();
+            }
+            else
+            {
+                list = AppointmentList.GetInstance();
+            }
+
             list.addAppointment(a);
             Log.e("List Size ", String.valueOf(list.getAppointments().size()));
             Log.e("File Path",file.getAbsolutePath());
