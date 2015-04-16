@@ -59,4 +59,55 @@ public class SharedPreferencesHandler {
         edit.apply();
         edit.commit();
     }
+    public void setFirstName(String FirstName)
+    {
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString("firstname",FirstName);
+        edit.apply();
+        edit.commit();
+    }
+
+    public String getFirstName()
+    {
+        return preferences.getString("firstname","");
+    }
+
+    public void setLastName(String LastName)
+    {
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString("lastname",LastName);
+        edit.apply();
+        edit.commit();
+    }
+
+    public String getLastName()
+    {
+        return preferences.getString("lastname","");
+    }
+
+    public void setAge(int age)
+    {
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putInt("age",age);
+        edit.apply();
+        edit.commit();
+    }
+
+    public int getAge()
+    {
+        return preferences.getInt("age", -1);
+    }
+
+    public void setCity(String City)
+    {
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString("city",City);
+        edit.apply();
+        edit.commit();
+    }
+
+    public String getCity()
+    {
+        return preferences.getString("city","");
+    }
 }

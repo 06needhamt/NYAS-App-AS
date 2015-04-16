@@ -7,30 +7,34 @@
     android:minHeight="25px">
 
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/hello"
-        android:layout_gravity="center" />
-
-    <ImageView
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/FirstName"
+        android:layout_gravity="center_horizontal|top" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/LastName"
+        android:layout_gravity="center_horizontal|top" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Age"
+        android:layout_gravity="center_horizontal|top" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/City"
         android:layout_gravity="center_horizontal|top" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/view_appointments"
-        android:id="@+id/AppointmentsButton"
+        android:text="@string/save_changes"
+        android:id="@+id/SaveChanges"
         android:layout_gravity="center_horizontal|top" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/edit_profile_string"
-        android:id="@+id/EditProfile"
-        android:layout_gravity="center_horizontal|top" />
-
 </FrameLayout>
