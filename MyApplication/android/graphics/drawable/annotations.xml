@@ -1,0 +1,5 @@
+<root>
+    <item name='android.graphics.drawable.ShapeDrawable'>
+        <annotation name='org.jetbrains.annotations.NotNull' />
+    </item>
+</root>

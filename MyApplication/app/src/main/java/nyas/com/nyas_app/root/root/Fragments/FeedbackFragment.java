@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RectShape;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.DisplayMetrics;
@@ -22,6 +23,8 @@ import android.widget.Toast;
 
 import nyas.com.nyas_app.R;
 import nyas.com.nyas_app.root.root.IAppConstants;
+import nyas.com.nyas_app.root.root.classes.ChatBubble;
+import nyas.com.nyas_app.root.root.classes.TextViewBorder;
 
 /**
  * Created by Tom on 15/04/2015.
@@ -90,10 +93,8 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
     }
 
     private ShapeDrawable CreateBorder() {
-        ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());
-        shapeDrawable.getPaint().setARGB(0xFF,0x00,0x00,0x00);
-        shapeDrawable.getPaint().setStyle(Paint.Style.STROKE);
-        shapeDrawable.getPaint().setStrokeWidth(20.0f);
+
+        TextViewBorder shapeDrawable = new TextViewBorder(new RectShape());
         return shapeDrawable;
 
     }
