@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -40,7 +41,7 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
     View v;
     DisplayMetrics dm;
     ScrollView lv;
-    TextView Message;
+    EditText Message;
     Button Send;
     LinearLayout Chatlinear;
 
@@ -67,12 +68,18 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
         lv = (ScrollView) v.findViewById(R.id.Chatitems);
         lv.setBackground(new TextViewBorder(new RectShape()));
         lv.setLayoutParams(CreateItemsLayoutParams(screenwidth,screenheight));
-         Chatlinear = new LinearLayout(getActivity());
+        Chatlinear = new LinearLayout(getActivity());
         Chatlinear.setOrientation(LinearLayout.VERTICAL);
 
         lv.addView(Chatlinear);
-        Message = (TextView) v.findViewById(R.id.Message);
+        Message = (EditText) v.findViewById(R.id.Message);
         Message.setLayoutParams(CreateMessageLayoutParams(screenwidth,screenheight));
+        Message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Message.setText("");
+            }
+        });
         Send = (Button) v.findViewById(R.id.SendButton);
         Send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,12 +94,24 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
     private void SendMessage() {
 
         TextView tv = new TextView(getActivity());
+        tv.setTextColor(getActivity().getResources().getColor(R.color.Black));
         tv.setText(Message.getText().toString());
+        tv.setLayoutParams(createMessageLayoutParams());
         tv.setBackground(new ChatBubble(new RectShape()));
         Chatlinear.addView(tv);
 
     }
 
+    public LinearLayout.LayoutParams createMessageLayoutParams()
+    {
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Message.getWidth(),Message.getHeight());
+        params.height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        params.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        params.topMargin = 2;
+        params.rightMargin = 2;
+        return params;
+    }
     private void GetDisplayMetrics() {
         dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -102,9 +121,9 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
     {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.gravity = Gravity.CENTER_HORIZONTAL;
-        params.topMargin = (int) (screenheight * 0.20);
-        params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
-        params.height = (int) (screenheight * 0.60);
+        params.topMargin = (int) (screenheight * 0.01);
+        params.width = FrameLayout.LayoutParams.MATCH_PARENT;
+        params.height = (int) (screenheight * 0.50);
         return params;
     }
 

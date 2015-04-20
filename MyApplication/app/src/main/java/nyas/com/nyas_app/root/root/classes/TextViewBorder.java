@@ -15,7 +15,7 @@ public class TextViewBorder extends ShapeDrawable{
         super(s);
         this.getPaint().setARGB(0xFF,0x00,0x00,0x00);
         this.getPaint().setStyle(Paint.Style.STROKE);
-        this.getPaint().setStrokeWidth(20.0f);
+        this.getPaint().setStrokeWidth(5.0f);
 
     }
     //ShapeDrawable shapeDrawable = new ShapeDrawable(new RectShape());

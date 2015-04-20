@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -56,7 +57,19 @@ public class MainActivity extends FragmentActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if(keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            return false;
+        }
+        else
+        {
+            super.onKeyDown(keyCode,event);
+            return true;
+        }
+    }
     public void AddFragments()
     {
         this.getFragmentManager().beginTransaction().add(R.id.bottomTableForButtons,new ButtonFragment()).commit();

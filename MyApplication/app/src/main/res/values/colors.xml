@@ -10,5 +10,6 @@
     <color name = "Yellow">#FFF8FF1D</color>
     <color name = "Cream">#FFF8FFDC</color>
     <color name = "Grey">#FF9CAFC7</color>
+    <color name = "Transparent">#00000000</color>
 
 </resources>
