@@ -28,5 +28,31 @@
     <string name="feedback_title"> Please rate your user experience out of 5 </string>
     <string name="send_string">Send</string>
     <string name="enter_message_string">Enter Message To Send</string>
+    <string name="contact_title"> How to contact NYAS? </string>
+    <string name="contact_information">
+        If you are not sure who you need to speak with please ring Head Office on 0151 649 8700 or email main@nyas.net \n
+
+        Telephone: 0151 649 8700 \n
+        Email: info@nyas.net \n
+        Monday to Friday 9:00 am – 5:00pm \n
+        \n
+        Messages can be left at all other times and will be responded to quickly \n
+        If you are in need of support call our Helpline \n
+        Helpline: 0808 808 1001 \n
+        \n
+        Email: help@nyas.net \n
+        Weekdays 8:00 am – 8:00pm, Saturday 10:00am – 4:00pm \n
+        Messages can be left at all other times and will be responded to quickly \n
+        Head Office Telephone: 0151 649 8700 \n
+        Head Office Fax: 0151 649 8701 \n
+        Email: main@nyas.net \n
+        \n
+        NYAS, \n
+        Egerton House, \n
+        Tower Road, \n
+        Birkenhead, \n
+        Wirral, \n
+        CH41 1FN</string>
+    <string name="make_appointment_string">Make Appointment</string>
 
 </resources>

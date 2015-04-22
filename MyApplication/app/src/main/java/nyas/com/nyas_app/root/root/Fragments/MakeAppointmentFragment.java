@@ -23,7 +23,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -37,7 +36,7 @@ import nyas.com.nyas_app.root.root.dialogs.CustomDateSetListener;
 /**
  * Created by Tom on 14/04/2015.
  */
-public class ContactFragment extends Fragment implements IAppConstants{
+public class MakeAppointmentFragment extends Fragment implements IAppConstants{
 
     Button dateButton;
     Button timeButton;
@@ -63,7 +62,7 @@ public class ContactFragment extends Fragment implements IAppConstants{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_content_contact_us, container, false);
+        View view = inflater.inflate(R.layout.fragment_content_make_appointment, container, false);
         view.setPadding(0, 0, 0, 5);
         v = view;
         GetDisplayMetrics();
@@ -184,7 +183,6 @@ public class ContactFragment extends Fragment implements IAppConstants{
             Log.e("WriteAppointment","An error occurred while writing the appointment to a file");
             throw new Error("\"An error occurred while writing the appointment to a file\"");
         }
-
 
 
     }

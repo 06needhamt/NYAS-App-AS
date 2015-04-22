@@ -5,9 +5,6 @@ import android.widget.DatePicker;
 
 import java.util.Date;
 
-import nyas.com.nyas_app.root.root.Fragments.ContactFragment;
-import nyas.com.nyas_app.root.root.Fragments.UserProfileContentFragment;
-
 /**
  * Created by Tom on 14/04/2015.
  */
@@ -26,7 +23,7 @@ public class CustomDateSetListener implements DatePickerDialog.OnDateSetListener
         d.setYear(year);
         d.setMonth(monthOfYear);
         d.setDate(dayOfMonth);
-        //ContactFragment.setDate(d);
+        //MakeAppointmentFragment.setDate(d);
     }
 
     public Date getDate()

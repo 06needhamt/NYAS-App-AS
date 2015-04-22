@@ -8,6 +8,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -41,6 +42,7 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
     DisplayMetrics dm;
     ScrollView lv;
     SimpleAdapter simpleAdapter;
+    Button BackButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,15 +66,30 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
         LinearLayout linear = new LinearLayout(getActivity());
         linear.setOrientation(LinearLayout.VERTICAL);
         List<Tuple<String,String>> map = ReadAppointments();
-        for(int i = 0; i < map.size(); i++)
+        try {
+            for(int i = 0; i < map.size(); i++)
+            {
+                TextView t = new TextView(getActivity());
+                t.setTextColor(getActivity().getResources().getColor(R.color.Black));
+                t.setTextSize(TypedValue.COMPLEX_UNIT_SP,25.0f);
+                t.setText("Date: " + map.get(i).getX() + " Time " + map.get(i).getY());
+                linear.addView(t, i);
+            }
+            lv.addView(linear);
+        }
+        catch (NullPointerException ex)
         {
+            ex.printStackTrace();
             TextView t = new TextView(getActivity());
             t.setTextColor(getActivity().getResources().getColor(R.color.Black));
-            t.setTextSize(TypedValue.COMPLEX_UNIT_SP,25.0f);
-            t.setText("Date: " + map.get(i).getX() + " Time " + map.get(i).getY());
-            linear.addView(t, i);
+            t.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25.0f);
+            t.setText("No booked appointments");
+            linear.addView(t);
+            lv.addView(linear);
+
         }
-        lv.addView(linear);
+
+
     }
 
     private List<Tuple<String,String>> ReadAppointments() {
@@ -87,7 +104,6 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
         {
             ex.printStackTrace();
             Log.e("ReadAppointment", "An error occurred while writing the appointment to a file");
-            throw new Error("\"An error occurred while reading the appointment to a file\"");
         }
         catch (ClassNotFoundException cls)
         {
@@ -95,6 +111,11 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
             Log.e("ReadAppointment", "Class Not Found");
             throw new Error("Class Not Found");
         }
+        catch (NullPointerException npe)
+        {
+            npe.printStackTrace();
+        }
+        return null;
     }
     private String parseDate(Date d)
     {

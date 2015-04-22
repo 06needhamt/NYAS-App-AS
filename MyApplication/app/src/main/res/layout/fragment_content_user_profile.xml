@@ -33,4 +33,11 @@
         android:id="@+id/EditProfile"
         android:layout_gravity="center_horizontal|top" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/make_appointment_string"
+        android:id="@+id/makeAppointmentButton"
+        android:layout_gravity="center_horizontal|top" />
+
 </FrameLayout>

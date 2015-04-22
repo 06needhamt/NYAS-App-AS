@@ -40,6 +40,8 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
 
     Button Appointments;
     Button EditProfile;
+    Button MakeAppointment;
+    Button BackButton;
     DisplayMetrics dm;
 
     @Override
@@ -70,7 +72,7 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
                 getActivity().getFragmentManager().beginTransaction().replace(R.id.ContentFrame,new AppointmentFragment()).commit();
             }
         });
-        Appointments.setLayoutParams(CreateAppointmentLayoutParams(screenwidth,screenheight));
+        Appointments.setLayoutParams(CreateAppointmentLayoutParams(screenwidth, screenheight));
         EditProfile = (Button) v.findViewById(R.id.EditProfile);
         EditProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +80,26 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
                 getActivity().getFragmentManager().beginTransaction().replace(R.id.ContentFrame,new EditProfileFragment()).commit();
             }
         });
-        EditProfile.setLayoutParams(CreateEditProfileLayoutParams(screenwidth,screenheight));
+        EditProfile.setLayoutParams(CreateEditProfileLayoutParams(screenwidth, screenheight));
+        MakeAppointment = (Button) v.findViewById(R.id.makeAppointmentButton);
+        MakeAppointment.setLayoutParams(CreateMakeAppointmentLayoutParams(screenwidth,screenheight));
+        MakeAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getFragmentManager().beginTransaction().replace(R.id.ContentFrame, new MakeAppointmentFragment()).commit();
+            }
+        });
+
+
+    }
+
+    private FrameLayout.LayoutParams CreateEditProfileLayoutParams(int screenwidth, int screenheight) {
+        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
+        params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
+        params.gravity = Gravity.CENTER_HORIZONTAL;
+        params.topMargin = (int) (screenheight * 0.10);
+        return params;
     }
 
     private FrameLayout.LayoutParams CreateAppointmentLayoutParams(int screenwidth, int screenheight) {
@@ -89,14 +110,16 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
         params.topMargin = (int) (screenheight * 0.20);
         return params;
     }
-    private FrameLayout.LayoutParams CreateEditProfileLayoutParams(int screenwidth, int screenheight) {
+
+    private FrameLayout.LayoutParams CreateMakeAppointmentLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
         params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
         params.gravity = Gravity.CENTER_HORIZONTAL;
-        params.topMargin = (int) (screenheight * 0.05);
+        params.topMargin = (int) (screenheight * 0.30);
         return params;
     }
+
 
     /**
      * this method calls and displays a dialog fragment which allows a user to enter their pin number
