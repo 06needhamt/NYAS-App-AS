@@ -66,10 +66,9 @@ public class SharedPreferencesHandler {
         edit.apply();
         edit.commit();
     }
-
     public String getFirstName()
     {
-        return preferences.getString("firstname","");
+        return preferences.getString("firstname","First Name");
     }
 
     public void setLastName(String LastName)
@@ -82,7 +81,7 @@ public class SharedPreferencesHandler {
 
     public String getLastName()
     {
-        return preferences.getString("lastname","");
+        return preferences.getString("lastname","Last Name");
     }
 
     public void setAge(int age)
@@ -95,7 +94,7 @@ public class SharedPreferencesHandler {
 
     public int getAge()
     {
-        return preferences.getInt("age", -1);
+        return preferences.getInt("age", 0);
     }
 
     public void setCity(String City)
@@ -108,6 +107,6 @@ public class SharedPreferencesHandler {
 
     public String getCity()
     {
-        return preferences.getString("city","");
+        return preferences.getString("city","City");
     }
 }

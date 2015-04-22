@@ -46,6 +46,7 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         v = view;
         GetDisplayMetrics();
         SetUpViews();
+        LoadProfile();
 
         return view;
     }
@@ -104,6 +105,21 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         SaveChanges.setLayoutParams(CreateSaveLayoutParams(screenwidth,screenheight));
     }
 
+    private void LoadProfile()
+    {
+        SharedPreferences prefs = getActivity().getSharedPreferences(PREF_NAMES,Context.MODE_PRIVATE);
+        SharedPreferencesHandler sph = new SharedPreferencesHandler(prefs);
+        FirstName.setText(sph.getFirstName());
+        LastName.setText(sph.getLastName());
+        if(sph.getAge() == 0)
+        {
+            Age.setText("Age");
+        }
+        else {
+            Age.setText(String.valueOf(sph.getAge()));
+        }
+        City.setText(sph.getCity());
+    }
     private void SaveProfile() {
         SharedPreferences prefs = getActivity().getSharedPreferences(PREF_NAMES, Context.MODE_PRIVATE);
         SharedPreferencesHandler sph = new SharedPreferencesHandler(prefs);
