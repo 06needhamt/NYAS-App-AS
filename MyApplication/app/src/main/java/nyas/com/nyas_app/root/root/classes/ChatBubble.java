@@ -7,6 +7,7 @@ import android.graphics.drawable.shapes.Shape;
 
 /**
  * Created by Tom on 17/04/2015.
+ * T
  */
 public class ChatBubble extends ShapeDrawable {
     public ChatBubble(Shape s)

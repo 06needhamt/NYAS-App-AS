@@ -41,6 +41,9 @@ public class ButtonCreator {
         this.fragments = fragments;
     }
 
+    /**
+     * this method creates the bottom navigation buttons
+     */
     public void createButtons()
     {
         TableRow row = new TableRow(caller.getBaseContext());
@@ -70,6 +73,11 @@ public class ButtonCreator {
             //Log.e("Count", String.valueOf(row.getChildCount()));
         }
     }
+
+    /**
+     * this method handles the navigation buttons being clicked
+     * @param buttonnumber the number of the button that was clicked
+     */
     private void buttonClicked(int buttonnumber) {
         if(buttonnumber < 5) {
             caller.findViewById(R.id.AccessibilityFrame).setVisibility(View.VISIBLE);

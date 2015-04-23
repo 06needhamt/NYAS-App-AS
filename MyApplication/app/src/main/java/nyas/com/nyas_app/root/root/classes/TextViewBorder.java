@@ -8,8 +8,13 @@ import android.widget.TextView;
 
 /**
  * Created by Tom on 17/04/2015.
+ * This class crates a border that will be placed around a text view
  */
 public class TextViewBorder extends ShapeDrawable{
+    /**
+     * Constructs a new border
+     * @param s the shape of the border
+     */
     public TextViewBorder(Shape s)
     {
         super(s);
