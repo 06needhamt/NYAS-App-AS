@@ -34,6 +34,10 @@ public class ButtonFragment extends Fragment {
         return view;
     }
 
+    /**
+     * creates an array of {@link android.app.Fragment} objects for use with the navigation buttons
+     * @return an array of {@link android.app.Fragment} objects for use with the navigation buttons
+     */
     private Fragment[] createFragments()
     {
         fragments = new Fragment[6];
@@ -46,6 +50,11 @@ public class ButtonFragment extends Fragment {
         return fragments;
 
     }
+
+    /**
+     * this method creates the navigation buttons that are displayed at the bottom of the screen
+     * and allow the user to navigate through the app
+     */
     private void createButtons() {
 
         TableLayout table = (TableLayout) v.findViewById(R.id.TableForButtons);
@@ -54,6 +63,12 @@ public class ButtonFragment extends Fragment {
 
     }
 
+    /**
+     * creates an integer array containing the ids from {@link nyas.com.nyas_app.R.drawable}
+     * which represent the icons which are placed on the navigation buttons
+     * @return an integer array containing the ids from {@link nyas.com.nyas_app.R.drawable}
+     * which represent the icons which are placed on the navigation buttons
+     */
     private int[] getids() {
         int[] ids = new int[6];
         ids[0] = R.drawable.picture1;
