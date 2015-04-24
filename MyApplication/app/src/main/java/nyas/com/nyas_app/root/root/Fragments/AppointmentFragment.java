@@ -36,6 +36,7 @@ import nyas.com.nyas_app.root.root.classes.Tuple;
 
 /**
  * Created by Tom on 15/04/2015.
+ * This fragment displays the list of appointments that has been made within the app
  */
 public class AppointmentFragment extends Fragment implements IAppConstants {
     View v;
@@ -61,6 +62,9 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
         return view;
     }
 
+    /**
+     * this method sets up all of the necessary views to display this fragment
+     */
     private void SetUpViews() {
         lv = (ScrollView) v.findViewById(R.id.items);
         LinearLayout linear = new LinearLayout(getActivity());
@@ -92,7 +96,12 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
 
     }
 
-    private List<Tuple<String,String>> ReadAppointments() {
+    /**
+     * this method reads all of the booked appointments from the file
+     * @return an {@link java.util.ArrayList} of {@link nyas.com.nyas_app.root.root.classes.Tuple} objects
+     * witch contain key value pairs that represent {@link nyas.com.nyas_app.root.root.classes.Appointment} objects
+     */
+    private ArrayList<Tuple<String,String>> ReadAppointments() {
         try {
             File file = new File(getActivity().getFilesDir(), APPOINTMENT_FILE_NAME);
             FileInputStream fileInputStream = new FileInputStream(file);
@@ -117,17 +126,36 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
         }
         return null;
     }
+
+    /**
+     * Parses a date string from a {@link java.util.Date} object
+     * @param d the {@link java.util.Date} object to parse
+     * @return a string which represents the {@link java.util.Date} object
+     */
     private String parseDate(Date d)
     {
         return d.getDate() + "/" + d.getMonth() + "/" + d.getYear();
     }
 
+    /**
+     * Parses a time string from a {@link nyas.com.nyas_app.root.root.classes.Time} object
+     * @param t the {@link nyas.com.nyas_app.root.root.classes.Time} object to parse
+     * @return a string which represents the {@link nyas.com.nyas_app.root.root.classes.Time} object
+     */
     private String parseTime(Time t)
     {
         return t.getHours() + ":" + t.getMinutes();
     }
 
-    private List<Tuple<String,String>> CreateMap(AppointmentList list) {
+    /**
+     * creates an {@link java.util.ArrayList} of {@link nyas.com.nyas_app.root.root.classes.Tuple} objects
+     * which contains key value pairs which represent {@link nyas.com.nyas_app.root.root.classes.Appointment} objects
+     * @param list an {@link nyas.com.nyas_app.root.root.classes.AppointmentList} object which contains
+     *             all of the appointments read from the file
+     * @return an {@link java.util.ArrayList} of {@link nyas.com.nyas_app.root.root.classes.Tuple} objects
+     * witch contain key value pairs that represent {@link nyas.com.nyas_app.root.root.classes.Appointment} objects
+     */
+    private ArrayList<Tuple<String,String>> CreateMap(AppointmentList list) {
         if(list == null || list.getAppointments().size() == 0 )
         {
             return new ArrayList<>();
@@ -145,6 +173,10 @@ public class AppointmentFragment extends Fragment implements IAppConstants {
         return appointmentMapList;
     }
 
+    /**
+     * this class gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
     private void GetDisplayMetrics() {
         dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
