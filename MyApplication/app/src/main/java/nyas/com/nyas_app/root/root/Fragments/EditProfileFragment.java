@@ -22,7 +22,8 @@ import nyas.com.nyas_app.root.root.IAppConstants;
 import nyas.com.nyas_app.root.root.classes.SharedPreferencesHandler;
 
 /**
- * Created by Tom on 15/04/2015.
+ * Created by Thomas Needham on 15/04/2015.
+ * this class creates and displays the fragment which allows a user to edit their user profile within the app
  */
 public class EditProfileFragment extends Fragment implements IAppConstants{
 
@@ -51,6 +52,12 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         return view;
     }
 
+
+    /**
+     * This method sets up all of the views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void SetUpViews() {
         int screenwidth = dm.widthPixels;
         int screenheight = dm.heightPixels;
@@ -105,6 +112,9 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         SaveChanges.setLayoutParams(CreateSaveLayoutParams(screenwidth,screenheight));
     }
 
+    /**
+     * this method loads a previously save user profile from {@link android.content.SharedPreferences}
+     */
     private void LoadProfile()
     {
         SharedPreferences prefs = getActivity().getSharedPreferences(PREF_NAMES,Context.MODE_PRIVATE);
@@ -120,6 +130,10 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         }
         City.setText(sph.getCity());
     }
+
+    /**
+     * this method saves the entered user profile information to {@link android.content.SharedPreferences}  
+     */
     private void SaveProfile() {
         SharedPreferences prefs = getActivity().getSharedPreferences(PREF_NAMES, Context.MODE_PRIVATE);
         SharedPreferencesHandler sph = new SharedPreferencesHandler(prefs);
@@ -135,6 +149,12 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
 
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the first name EditText
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the first name EditText
+     */
     private FrameLayout.LayoutParams CreateFirstNameLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -143,7 +163,12 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         params.gravity = Gravity.CENTER_HORIZONTAL;
         return params;
     }
-
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the last name EditText
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the lasr name EditText
+     */
     private FrameLayout.LayoutParams CreateLastNameLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -152,7 +177,12 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         params.gravity = Gravity.CENTER_HORIZONTAL;
         return params;
     }
-
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the age EditText
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the age EditText
+     */
     private FrameLayout.LayoutParams CreateAgeLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -161,7 +191,12 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         params.gravity = Gravity.CENTER_HORIZONTAL;
         return params;
     }
-
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the city EditText
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the city EditText
+     */
     private FrameLayout.LayoutParams CreateCityLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -180,7 +215,10 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         return params;
     }
 
-
+    /**
+     * this method gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
     private void GetDisplayMetrics() {
         dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);

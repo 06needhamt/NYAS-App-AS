@@ -53,6 +53,11 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
         return view;
     }
 
+    /**
+     * This method sets up all of the views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void SetUpViews() {
         int screenheight = dm.heightPixels;
         int screenwidth = dm.widthPixels;
@@ -86,12 +91,19 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
 
     }
 
+    /**
+     * this method saves the feedback submitted by the user
+     */
     private void SaveFeedback() {
         Toast.makeText(getActivity(),"Feedback Saved",Toast.LENGTH_LONG).show();
         Log.e("Feedback",String.valueOf(Rating.getRating()));
         Log.e("Feedback",Comments.getText().toString());
     }
 
+    /**
+     * this method creates a {@link android.graphics.drawable.ShapeDrawable} in the shape of a border
+     * @return a {@link android.graphics.drawable.ShapeDrawable} in the shape of a border
+     */
     private ShapeDrawable CreateBorder() {
 
         TextViewBorder shapeDrawable = new TextViewBorder(new RectShape());
@@ -99,6 +111,12 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
 
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the title TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the title TextView
+     */
     private FrameLayout.LayoutParams CreateTitleLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -108,6 +126,12 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the Rating View
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the Rating View
+     */
     private FrameLayout.LayoutParams CreateRatingLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -116,6 +140,13 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
         params.gravity = Gravity.CENTER_HORIZONTAL;
         return params;
     }
+
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the comments EditText
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the comments EditText
+     */
     private FrameLayout.LayoutParams CreateCommentsLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.MATCH_PARENT;
@@ -126,6 +157,13 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
         params.gravity = Gravity.CENTER_HORIZONTAL;
         return params;
     }
+
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the submit button
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the submit button
+     */
     private FrameLayout.LayoutParams CreateSubmitLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth, screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -134,6 +172,10 @@ public class FeedbackFragment extends Fragment implements IAppConstants{
         params.gravity = Gravity.CENTER_HORIZONTAL;
         return params;
     }
+    /**
+     * this method gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
     private void GetDisplayMetrics() {
         dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);

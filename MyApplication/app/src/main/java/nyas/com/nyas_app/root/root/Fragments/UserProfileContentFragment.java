@@ -180,8 +180,11 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
     public void doNoConfirmClick(String pin) {
         this.getFragmentManager().beginTransaction().replace(R.id.ContentFrame, new HomeContentFragment()).commit();
     }
-
-    public void getDisplayMetrics()
+    /**
+     * this method gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
+    private void getDisplayMetrics()
     {
         dm = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);

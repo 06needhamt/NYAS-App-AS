@@ -36,6 +36,7 @@ import nyas.com.nyas_app.root.root.classes.Tuple;
 
 /**
  * Created by Tom on 15/04/2015.
+ * This class creates and displays the group chat fragment where app users can chat to each other
  */
 public class GroupChatFragment extends Fragment implements IAppConstants {
     View v;
@@ -62,6 +63,11 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
         return view;
     }
 
+    /**
+     * This method sets up all of the views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void SetUpViews() {
         int screenheight = dm.heightPixels;
         int screenwidth = dm.widthPixels;
@@ -91,6 +97,9 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
 
     }
 
+    /**
+     * this method sends a message
+     */
     private void SendMessage() {
 
         TextView tv = new TextView(getActivity());
@@ -102,6 +111,10 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
 
     }
 
+    /**
+     * this method creates the {@link android.widget.LinearLayout.LayoutParams} for chat messages
+     * @return the {@link android.widget.LinearLayout.LayoutParams} for chat messages
+     */
     public LinearLayout.LayoutParams createMessageLayoutParams()
     {
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(Message.getWidth(),Message.getHeight());
@@ -112,11 +125,13 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
         params.rightMargin = 2;
         return params;
     }
-    private void GetDisplayMetrics() {
-        dm = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-    }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the chat items
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the chat items
+     */
     FrameLayout.LayoutParams CreateItemsLayoutParams(int screenwidth,int screenheight)
     {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -127,6 +142,12 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the message edit text
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the message edit text
+     */
     FrameLayout.LayoutParams CreateMessageLayoutParams(int screenwidth,int screenheight)
     {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -137,6 +158,13 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
         params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
         return params;
     }
+
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the send button
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the send button
+     */
     FrameLayout.LayoutParams CreateSendLayoutParams(int screenwidth,int screenheight)
     {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
@@ -146,5 +174,15 @@ public class GroupChatFragment extends Fragment implements IAppConstants {
         params.leftMargin = (int) (screenwidth * 0.05);
         params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
         return params;
+    }
+
+    /**
+     * this method gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
+    public void GetDisplayMetrics()
+    {
+        dm = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
     }
 }

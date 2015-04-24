@@ -14,7 +14,8 @@ import android.widget.TextView;
 import nyas.com.nyas_app.R;
 
 /**
- * Created by 22416714 on 22/04/2015.
+ * Created by Tom Needham on 22/04/2015.
+ * This class creates and displays the fragment witch contains contact information for NYAS
  */
 public class ContactDetailsFragment extends Fragment {
 
@@ -22,11 +23,14 @@ public class ContactDetailsFragment extends Fragment {
     TextView Title;
     TextView Content;
     DisplayMetrics dm;
+
+    @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
     }
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment_content_details,container,false);
@@ -37,6 +41,11 @@ public class ContactDetailsFragment extends Fragment {
         return view;
     }
 
+    /**
+     * This method sets up all of the views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void CreateViews() {
         int screenwidth = dm.widthPixels;
         int screenheight = dm.heightPixels;
@@ -52,6 +61,12 @@ public class ContactDetailsFragment extends Fragment {
         Content.setMaxLines(10);
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the title TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the title TextView
+     */
     private FrameLayout.LayoutParams CreateTitleLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -60,7 +75,12 @@ public class ContactDetailsFragment extends Fragment {
         params.topMargin = (int) (screenheight * 0.05);
         return params;
     }
-
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateContentLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.MATCH_PARENT;
@@ -69,7 +89,10 @@ public class ContactDetailsFragment extends Fragment {
         params.topMargin = (int) (screenheight * 0.15);
         return params;
     }
-
+    /**
+     * this method gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
     private void getDisplayMetrics()
     {
         dm = new DisplayMetrics();

@@ -71,19 +71,27 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return view;
     }
 
-    private void GetDisplayMetrics() {
-        dm = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-    }
-
+    /**
+     * this method sets the date from the date picker
+     * @param d the received date object
+     */
     public void setDate(Date d) {
         SelectedDate = d;
     }
 
+    /**
+     * this method sets the time from the time picker
+     * @param t the recieved time object
+     */
     public void setTime(Time t) {
         SelectedTime = t;
     }
 
+    /**
+     * This method parses a date string from the received date object
+     * @param selectedDate the recieved date object
+     * @return a date string from the received date object
+     */
     private String parseDate(Date selectedDate) {
         String Year = String.valueOf(selectedDate.getYear());
         String Month = String.valueOf(selectedDate.getMonth() + 1);
@@ -99,21 +107,39 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return Day + "/" + Month + "/" + Year;
     }
 
+    /**
+     * Parses a time string from the received time object from the time picker
+     * @param selectedTime the received time object from the time picker
+     * @return a time string from the received time object from the time picker
+     */
     private String parseTime(Time selectedTime) {
         String Hour = String.valueOf(selectedTime.getHours());
         String Minute = String.valueOf(selectedTime.getMinutes());
-        if(selectedTime.getHours() < 10)
+        if(selectedTime.getHours() < 10 && selectedTime.getHours() > 0)
         {
             Hour = "0" + selectedTime.getHours();
         }
-        if(selectedTime.getMinutes() < 10)
+        else if(selectedTime.getHours() == 0)
+        {
+            Hour = "00";
+        }
+
+        if(selectedTime.getMinutes() < 10 && selectedTime.getMinutes() > 0)
         {
             Minute = "0" + selectedTime.getMinutes();
+        }
+        else if(selectedTime.getMinutes() == 0)
+        {
+            Minute = "00";
         }
         return Hour + ":" + Minute;
     }
 
-
+    /**
+     * This method sets up all of the views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void SetUpViews() {
 
         int screenwidth = dm.widthPixels;
@@ -151,6 +177,9 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         submitButton.setLayoutParams(CreateSubmitButtonLayoutParams(screenheight, screenwidth));
     }
 
+    /**
+     * this method writes booked appointments to a file
+     */
     private void WriteAppointmentToFile() {
         try {
             Appointment a = parseAppointment();
@@ -187,6 +216,11 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
 
     }
 
+    /**
+     * this method parses an appointment object from its respective date and time objects
+     * @return an appointment object from its respective date and time objects
+     * @throws NumberFormatException if the date string is not a valid integer
+     */
     private Appointment parseAppointment() throws NumberFormatException {
         String[] datestring;
         String[] timsstring;
@@ -287,5 +321,15 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
             }
         }, 12, 0, true);
         tp.show();
+    }
+
+    /**
+     * this method gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
+    private void GetDisplayMetrics()
+    {
+        dm = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
     }
 }
