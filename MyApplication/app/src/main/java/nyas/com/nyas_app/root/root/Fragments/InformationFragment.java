@@ -16,6 +16,8 @@ import nyas.com.nyas_app.R;
 
 /**
  * Created by Tom on 13/04/2015.
+ * No longer used
+ * @see nyas.com.nyas_app.root.root.Fragments.NewInformationFragment
  */
 public class InformationFragment extends Fragment {
 
@@ -33,6 +35,7 @@ public class InformationFragment extends Fragment {
     ImageView FeedbackImage;
     ImageView FeedbackText;
     DisplayMetrics dm;
+
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -52,13 +55,21 @@ public class InformationFragment extends Fragment {
         SetUpViews();
         return view;
     }
-
+    /**
+     * This method sets up all of the views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void SetUpViews() {
         SetUpImageViews();
         SetUpTextViews();
 
     }
-
+    /**
+     * This method sets up all of the text views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void SetUpTextViews() {
         int screenwidth = dm.widthPixels;
         int screenheight = dm.heightPixels;
@@ -81,7 +92,11 @@ public class InformationFragment extends Fragment {
         ProfileText.setLayoutParams(CreateProfileTextLayoutParams(screenheight, screenwidth));
 
     }
-
+    /**
+     * This method sets up all of image views within this fragments
+     * and also assigns their layout parameters
+     * @see android.widget.FrameLayout.LayoutParams
+     */
     private void SetUpImageViews() {
         int screenwidth = dm.widthPixels;
         int screenheight = dm.heightPixels;
@@ -108,6 +123,12 @@ public class InformationFragment extends Fragment {
         ProfileImage.setLayoutParams(CreateProfileImageLayoutParams(screenheight,screenwidth));
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the home TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateHomeTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -117,6 +138,13 @@ public class InformationFragment extends Fragment {
         params.topMargin = (int) (screenheight * 0.05);
         return params;
     }
+
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the home ImageView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateHomeImageLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -127,6 +155,12 @@ public class InformationFragment extends Fragment {
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the information TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateInformationTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -136,6 +170,12 @@ public class InformationFragment extends Fragment {
         params.topMargin = (int) (screenheight * 0.20);
         return params;
     }
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the information ImageView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateInformationImageLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -146,6 +186,12 @@ public class InformationFragment extends Fragment {
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the contact TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateContactTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -155,6 +201,12 @@ public class InformationFragment extends Fragment {
         params.topMargin = (int) (screenheight * 0.35);
         return params;
     }
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the contact ImageView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateContactImageLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -165,6 +217,12 @@ public class InformationFragment extends Fragment {
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the profile TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateProfileTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
@@ -174,6 +232,12 @@ public class InformationFragment extends Fragment {
         params.topMargin = (int) (screenheight * 0.50);
         return params;
     }
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the profile ImageView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateProfileImageLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;

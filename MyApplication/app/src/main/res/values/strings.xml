@@ -54,5 +54,11 @@
         Wirral, \n
         CH41 1FN</string>
     <string name="make_appointment_string">Make Appointment</string>
+    <string name="first_information_string">This page contains information about what NYAS offers children and vulnerable adults services including</string>
+    <string name="second_information_string">Rights, responsibilities and entitlements.</string>
+    <string name="third_information_string">Children and vulnerable adult services</string>
+    <string name="forth_information_string">Meeting information</string>
+    <string name="welcome_to_app_string">Welcome to the NYAS interactive app</string>
+    <string name="navigation_string">Use the buttons below to navigate around the app</string>
 
 </resources>

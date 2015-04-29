@@ -22,91 +22,89 @@ import static android.view.ViewTreeObserver.OnGlobalLayoutListener;
  * This class creates and displays the content pane for the home page
  * @author Tom Needham
  */
-public class HomeContentFragment extends Fragment{
+public class HomeContentFragment extends Fragment {
     /**
      * The view object being used to render this fragment
      */
     View v;
-    TextView Row1;
-    TextView Row2;
     DisplayMetrics dm;
+    TextView Title;
+    TextView Subtitle;
+
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
-        View view = inflater.inflate(R.layout.fragment_content_home,container,false);
-        view.setPadding(0,0,0,5);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_content_home, container, false);
+        view.setPadding(0, 0, 0, 5);
         v = view;
-        dm = new DisplayMetrics();
-        getActivity().findViewById(R.id.ContentFrame).setVisibility(View.VISIBLE);
+        getDisplayMetrics();
+//        getActivity().findViewById(R.id.ContentFrame).setVisibility(View.VISIBLE);
         SetUpViews();
         v.requestLayout();
         return view;
     }
 
     /**
-     * this method initialises and draws all of the objects within the fragment and displays them
+     * this class gets the {@link android.util.DisplayMetrics} associated with the device that the app
+     * is currently running on
+     */
+    private void getDisplayMetrics() {
+        dm = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+    }
+
+
+    /**
+     * this method sets up all of the necessary views to display this fragment
      */
     private void SetUpViews() {
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-        Row1 = (TextView) v.findViewById(R.id.Row1);
-        Row1.setBackgroundColor(getActivity().getResources().getColor(R.color.Blue));
-        Row1.setTextColor(getActivity().getResources().getColor(R.color.White));
-        Row1.setTextSize(TypedValue.COMPLEX_UNIT_SP,15.0f);
-        Row1.setLayoutParams(CreateRow1Params());
-
-        Row2 = (TextView) v.findViewById(R.id.Row2);
-        Row2.setBackgroundColor(getActivity().getResources().getColor(R.color.Yellow));
-        Row2.setTextColor(getActivity().getResources().getColor(R.color.Black));
-        Row2.setTextSize(TypedValue.COMPLEX_UNIT_SP,15.0f);
-        Row2.setLayoutParams(CreateRow2Params());
-
-
-    }
-
-    /**
-     * Create the layout params for a row of the ui by getting the height and width
-     * of the fragment
-     */
-
-    private FrameLayout.LayoutParams CreateRow1Params()
-    {
-
         int screenwidth = dm.widthPixels;
         int screenheight = dm.heightPixels;
+
+        Title = (TextView) v.findViewById(R.id.Title);
+        Title.setText(R.string.welcome_to_app_string);
+        Title.setTextColor(getActivity().getResources().getColor(R.color.Black));
+        Title.setTextSize(TypedValue.COMPLEX_UNIT_DIP,30.0f);
+        Title.setLayoutParams(CreateTitleLayoutParams(screenwidth,screenheight));
+        Subtitle = (TextView) v.findViewById(R.id.Subtitle);
+        Subtitle.setText(R.string.navigation_string);
+        Subtitle.setTextColor(getActivity().getResources().getColor(R.color.Black));
+        Subtitle.setTextSize(TypedValue.COMPLEX_UNIT_DIP,20.0f);
+        Subtitle.setLayoutParams(CreateSubTitleLayoutParams(screenwidth,screenheight));
+    }
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the title TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the title TextView
+     */
+    private FrameLayout.LayoutParams CreateTitleLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
-        //params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.gravity = Gravity.CENTER_HORIZONTAL;
-        params.width = FrameLayout.LayoutParams.MATCH_PARENT;
+        params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
         params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
-        params.topMargin = (int) (screenheight * 0.10);
-        params.leftMargin = (int) (screenwidth * 0.05);
-        params.rightMargin = (int) (screenwidth * 0.05);
+        params.topMargin = (int) (screenheight * 0.01);
         return params;
     }
 
-
     /**
-     * Create the layout params for a row of the ui by getting the height and width
-     * of the fragment
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the subtitle TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the title TextView
      */
-    private FrameLayout.LayoutParams CreateRow2Params()
-    {
-        int screenwidth = dm.widthPixels;
-        int screenheight = dm.heightPixels;
+    private FrameLayout.LayoutParams CreateSubTitleLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
-        //params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.gravity = Gravity.CENTER_HORIZONTAL;
-        params.width = FrameLayout.LayoutParams.MATCH_PARENT;
+        params.width = FrameLayout.LayoutParams.WRAP_CONTENT;
         params.height = FrameLayout.LayoutParams.WRAP_CONTENT;
         params.topMargin = (int) (screenheight * 0.30);
-        params.leftMargin = (int) (screenwidth * 0.05);
-        params.rightMargin = (int) (screenwidth * 0.05);
         return params;
     }
+
 }
+

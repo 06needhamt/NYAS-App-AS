@@ -15,7 +15,7 @@
     <option name="OPTION_DOCUMENT_TAG_VERSION" value="true" />
     <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
     <option name="OPTION_DEPRECATED_LIST" value="true" />
-    <option name="OTHER_OPTIONS" value="-encoding utf-8 -bootclasspath &quot;G:\Android SDK&quot;" />
+    <option name="OTHER_OPTIONS" value="-encoding utf-8 -bootclasspath &quot;G:\Android SDK\platforms\android-21\android.jar&quot;" />
     <option name="HEAP_SIZE" value="1024" />
     <option name="LOCALE" />
     <option name="OPEN_IN_BROWSER" value="true" />

@@ -5,17 +5,20 @@
     android:layout_height="fill_parent"
     android:minWidth="25px"
     android:minHeight="25px">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test Row 1"
-        android:id="@+id/Row1"
+        android:text="New Text"
+        android:gravity="center"
+        android:id="@+id/Title"
         android:layout_gravity="center_horizontal|top" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test Row 2"
-        android:id="@+id/Row2"
+        android:text="New Text"
+        android:gravity="center"
+        android:id="@+id/Subtitle"
         android:layout_gravity="center_horizontal|top" />
 </FrameLayout>

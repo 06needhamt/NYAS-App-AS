@@ -205,7 +205,12 @@ public class EditProfileFragment extends Fragment implements IAppConstants{
         params.gravity = Gravity.CENTER_HORIZONTAL;
         return params;
     }
-
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the save button
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the save button
+     */
     private FrameLayout.LayoutParams CreateSaveLayoutParams(int screenwidth, int screenheight) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth,screenheight);
         params.width = FrameLayout.LayoutParams.WRAP_CONTENT;

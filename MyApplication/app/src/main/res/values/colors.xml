@@ -11,5 +11,7 @@
     <color name = "Cream">#FFF8FFDC</color>
     <color name = "Grey">#FF9CAFC7</color>
     <color name = "Transparent">#00000000</color>
+    <color name = "Info_Green">#FF92D050</color>
+    <color name = "Info_Pink">#FFCA08AE</color>
 
 </resources>

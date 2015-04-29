@@ -238,6 +238,12 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return a;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the timetext TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateTimeTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenheight, screenwidth);
         params.gravity = Gravity.START;
@@ -248,6 +254,12 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the datetext TextView
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateDateTextLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenheight, screenwidth);
         params.gravity = Gravity.START;
@@ -258,6 +270,12 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the date button
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateDateButtonLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth, screenheight);
         params.gravity = Gravity.END;
@@ -268,6 +286,12 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the calendar
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateCalendarLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth, screenheight);
         params.gravity = Gravity.CENTER_HORIZONTAL;
@@ -276,6 +300,12 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the time button
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateTimeButtonLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth, screenheight);
         params.gravity = Gravity.END;
@@ -286,6 +316,12 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return params;
     }
 
+    /**
+     * this method creates the {@link android.widget.FrameLayout.LayoutParams} for the submit button
+     * @param screenwidth the width of the devices screen
+     * @param screenheight the height of the devices screen
+     * @return the {@link android.widget.FrameLayout.LayoutParams} for the content TextView
+     */
     private FrameLayout.LayoutParams CreateSubmitButtonLayoutParams(int screenheight, int screenwidth) {
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(screenwidth, screenheight);
         params.gravity = Gravity.CENTER_HORIZONTAL;
@@ -295,8 +331,10 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         return params;
     }
 
+    /**
+     * This method shows the date picker dialog and returns the chosen date
+     */
     private void GetDate() {
-
         DatePickerDialog p = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -311,6 +349,9 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
         p.show();
     }
 
+    /**
+     * this method shows the time picker dialog and returns the selected time
+     */
     private void GetTime() {
         TimePickerDialog tp = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
             @Override
