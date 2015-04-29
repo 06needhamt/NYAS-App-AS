@@ -9,7 +9,8 @@
     <string name="accessibility_string"> Accessibility </string>
     <string name="text_only_string"> Text Only</string>
     <string name="profile_content_placeholder"> User profile content goes here </string>
-    <string name="enter_pin_string"> Enter your 4 Digit pin </string>
+    <string name="enter_pin_string"> Please enter your 4 Digit pin </string>
+    <string name="set_pin_string"> Please enter a 4 Digit pin to secure your user profile</string>
     <string name="home_page_info"> Navigation bar will be on every page. Home page icon used for the home page</string>
     <string name="info_page_info"> I icon used for all the information, so on this page will be all the charity and the services they offer</string>
     <string name="contact_page_info"> Message icon will be the contact page which will have the option for the call back.</string>

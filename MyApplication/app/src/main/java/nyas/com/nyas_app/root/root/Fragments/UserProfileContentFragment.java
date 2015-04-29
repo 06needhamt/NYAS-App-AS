@@ -126,8 +126,16 @@ public class UserProfileContentFragment extends Fragment implements IAppConstant
      * NOTE This method is thread safe
      */
     private synchronized void enterPin() {
+        SharedPreferences prefs = getActivity().getSharedPreferences(PREF_NAMES,Context.MODE_PRIVATE);
+        SharedPreferencesHandler sph = new SharedPreferencesHandler(prefs);
+        if(sph.getPin().equals("0000")){
+            PinInputDialog p = new PinInputDialog(getResources().getString(R.string.set_pin_string), this);
+            p.show(getFragmentManager(), null);
+        }
+        else {
         PinInputDialog p = new PinInputDialog(getResources().getString(R.string.enter_pin_string), this);
         p.show(getFragmentManager(), null);
+        }
 
     }
 
