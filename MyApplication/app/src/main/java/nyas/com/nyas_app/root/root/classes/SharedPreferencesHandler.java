@@ -59,6 +59,11 @@ public class SharedPreferencesHandler {
         edit.apply();
         edit.commit();
     }
+
+    /**
+     * this method sets the first name in the user profile
+     * @param FirstName the first name to set
+     */
     public void setFirstName(String FirstName)
     {
         SharedPreferences.Editor edit = preferences.edit();
@@ -66,11 +71,19 @@ public class SharedPreferencesHandler {
         edit.apply();
         edit.commit();
     }
+    /**
+     * gets the value of the first name variable stored in shared preferences
+     * @return the value of the first name variable
+     */
     public String getFirstName()
     {
         return preferences.getString("firstname","First Name");
     }
 
+    /**
+     * this method sets the Last Name in the user profile
+     * @param LastName the first name to set
+     */
     public void setLastName(String LastName)
     {
         SharedPreferences.Editor edit = preferences.edit();
@@ -78,12 +91,18 @@ public class SharedPreferencesHandler {
         edit.apply();
         edit.commit();
     }
-
+    /**
+     * gets the value of the last name variable stored in shared preferences
+     * @return the value of the pin variable
+     */
     public String getLastName()
     {
         return preferences.getString("lastname","Last Name");
     }
-
+    /**
+     * this method sets the age in the user profile
+     * @param age the age to set
+     */
     public void setAge(int age)
     {
         SharedPreferences.Editor edit = preferences.edit();
@@ -92,11 +111,19 @@ public class SharedPreferencesHandler {
         edit.commit();
     }
 
+    /**
+     * gets the value of the age variable stored in shared preferences
+     * @return the value of the age variable
+     */
     public int getAge()
     {
         return preferences.getInt("age", 0);
     }
 
+    /**
+     * this method sets the City in the user profile
+     * @param City the City to set
+     */
     public void setCity(String City)
     {
         SharedPreferences.Editor edit = preferences.edit();
@@ -104,7 +131,10 @@ public class SharedPreferencesHandler {
         edit.apply();
         edit.commit();
     }
-
+    /**
+     * gets the value of the city variable stored in shared preferences
+     * @return the value of the city variable
+     */
     public String getCity()
     {
         return preferences.getString("city","City");
