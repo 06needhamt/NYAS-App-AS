@@ -182,6 +182,16 @@ public class MakeAppointmentFragment extends Fragment implements IAppConstants{
      */
     private void WriteAppointmentToFile() {
         try {
+            System.out.println(dateText.getText().toString());
+            System.out.println(timeText.getText().toString());
+            if(dateText.getText().toString().equals("Select A Date") || dateText.getText().toString().equals("")){
+                Toast.makeText(getActivity(),"Please enter a date",Toast.LENGTH_LONG).show();
+                return;
+            }
+            if(timeText.getText().toString().equals("Select A Time") || timeText.getText().toString().equals("")){
+                Toast.makeText(getActivity(),"Please enter a time",Toast.LENGTH_LONG).show();
+                return;
+            }
             Appointment a = parseAppointment();
             File file = new File(getActivity().getFilesDir().getAbsolutePath(), APPOINTMENT_FILE_NAME);
             Log.e("File Path",file.getAbsolutePath());

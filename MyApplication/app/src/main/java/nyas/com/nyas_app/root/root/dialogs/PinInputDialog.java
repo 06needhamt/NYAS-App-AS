@@ -83,6 +83,8 @@ public class PinInputDialog extends DialogFragment implements DialogInterface{
                 {
                     e.printStackTrace();
                     Toast.makeText(getActivity().getBaseContext(),e.getMessage(),Toast.LENGTH_LONG).show();
+                    String temp = "";
+                    caller.doNoConfirmClick(temp);
                 }
             }
         });
